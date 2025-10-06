@@ -1,5 +1,6 @@
 package co.edu.unicauca.DesignPatterns;
 
+import co.edu.unicauca.DesignPatterns.decorator.PriorityProject;
 import co.edu.unicauca.DesignPatterns.domain.adapter.CompanyDataProvider;
 import co.edu.unicauca.DesignPatterns.domain.adapter.ExternalService;
 import co.edu.unicauca.DesignPatterns.domain.adapter.ExternalServiceAdapter;
@@ -98,9 +99,44 @@ public class Main {
     // -------------------------------------------------------------------------
     private static void demoDecorator() {
         System.out.println("=== DECORATOR ===");
-        // TODO
-        System.out.println("(pendiente de integrar)");
+        User estudiante = new User(null, "Maryuri Fernandez Salazar", "maryurifernandez@unicauca.edu.co", Rol.ESTUDIANTE);
+        User director = new User(null, "Libardo Pantoja Yepez", "libardoPantoja@unicauca.edu.co", Rol.DOCENTE);
+
+        Project proyecto = new Project(
+                "Sistema de Facturacion",
+                "Desarrollo de un sistema para gestionar las ventas y clientes de una tienda.",
+                Programa.INGENIERIA_DE_SISTEMAS,
+                TipoTrabajoGrado.PRACTICA_PROFESIONAL,
+                estudiante,
+                director,
+                "facilitar a vendedores su trabajo"
+        );
+
+        System.out.println("****************************");
+        System.out.println("    PROYECTO ORIGINAL   ");
+        System.out.println("****************************");
+        System.out.println("Titulo: " + proyecto.getTitulo());
+        System.out.println("Descripcion: " + proyecto.getDescripcion());
+        System.out.println("Programa: " + proyecto.getPrograma());
+        System.out.println("Tipo de trabajo de grado: " + proyecto.getTipoTrabajoGrado());
+        System.out.println("Estudiante: " + proyecto.getEstudiante1().getFullName());
+        System.out.println("Director: " + proyecto.getDirector().getFullName());
+        System.out.println("Objetivo general: " + proyecto.getObjetivoGeneral());
         System.out.println();
+
+        PriorityProject proyectoPrioritario = new PriorityProject(proyecto);
+
+        System.out.println("**********************************************");
+        System.out.println("     PROYECTO DECORADO (Alta Prioridad)     ");
+        System.out.println("**********************************************");
+        System.out.println("Titulo: " + proyectoPrioritario.getTitulo());
+        System.out.println("Descripcion: " + proyectoPrioritario.getDescripcion());
+        System.out.println("Programa: " + proyectoPrioritario.getPrograma());
+        System.out.println("Tipo de trabajo de grado: " + proyectoPrioritario.getTipoTrabajoGrado());
+        System.out.println("Estudiante: " + proyectoPrioritario.getEstudiante1().getFullName());
+        System.out.println("Director: " + proyectoPrioritario.getDirector().getFullName());
+        System.out.println("Objetivo general: " + proyectoPrioritario.getObjetivoGeneral());
+        System.out.println("\n\n");
     }
 
     // -------------------------------------------------------------------------

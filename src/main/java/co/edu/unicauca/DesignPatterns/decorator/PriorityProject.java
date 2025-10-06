@@ -1,4 +1,5 @@
 package co.edu.unicauca.DesignPatterns.decorator;
+import co.edu.unicauca.DesignPatterns.domain.entities.Project;
 
 public class PriorityProject extends ProjectDecorator{
 
@@ -7,7 +8,7 @@ public class PriorityProject extends ProjectDecorator{
     }
 
     @Override
-    public String getDescription() {
-        return project.getTitle() + " [High Priority]";
+    public String getDescripcion() {
+        return project.getTitulo() + " [High Priority]";
     }
 }
