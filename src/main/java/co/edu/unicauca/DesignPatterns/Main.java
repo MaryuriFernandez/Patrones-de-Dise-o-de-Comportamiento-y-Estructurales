@@ -1,5 +1,6 @@
 package co.edu.unicauca.DesignPatterns;
 
+import co.edu.unicauca.DesignPatterns.domain.state.ProyectoDeGrado;
 import co.edu.unicauca.DesignPatterns.domain.adapter.CompanyDataProvider;
 import co.edu.unicauca.DesignPatterns.domain.adapter.ExternalService;
 import co.edu.unicauca.DesignPatterns.domain.adapter.ExternalServiceAdapter;
@@ -87,9 +88,22 @@ public class Main {
     // -------------------------------------------------------------------------
     private static void demoState() {
         System.out.println("=== STATE ===");
-        // TODO
-        System.out.println("(pendiente de integrar)");
-        System.out.println();
+        ProyectoDeGrado proyecto = new ProyectoDeGrado();
+
+        proyecto.presentar(); // Formato A diligenciado
+        proyecto.corregir();  // Corrección formato A no.1
+        proyecto.corregir();  // Corrección formato A no.2
+        proyecto.corregir();  // Corrección formato A no.3
+        proyecto.aprobar();   // Comité acepta
+        proyecto.presentar(); // Presenta anteproyecto
+        proyecto.corregir();  // Corrección anteproyecto no.1
+        proyecto.corregir();  // Corrección anteproyecto no.2
+        proyecto.corregir();  // Corrección anteproyecto no.3
+        proyecto.aprobar();   // Aprobado por departamento
+        proyecto.presentar(); // Entra a desarrollo
+        proyecto.presentar(); // Presenta monografía
+        proyecto.presentar(); // Fija fecha
+        proyecto.aprobar();   // Sustentación aprobada
     }
 
     // -------------------------------------------------------------------------
