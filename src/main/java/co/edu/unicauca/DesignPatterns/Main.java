@@ -1,6 +1,5 @@
 package co.edu.unicauca.DesignPatterns;
 
-import co.edu.unicauca.DesignPatterns.domain.state.ProyectoDeGrado;
 import co.edu.unicauca.DesignPatterns.domain.adapter.CompanyDataProvider;
 import co.edu.unicauca.DesignPatterns.domain.adapter.ExternalService;
 import co.edu.unicauca.DesignPatterns.domain.adapter.ExternalServiceAdapter;

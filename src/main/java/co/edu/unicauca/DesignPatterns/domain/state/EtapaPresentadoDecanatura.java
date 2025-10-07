@@ -1,10 +1,14 @@
 package co.edu.unicauca.DesignPatterns.domain.state;
 
-public class EstadoPresentadoDecanatura implements EstadoProyecto {
+import co.edu.unicauca.DesignPatterns.domain.entities.EstadoProyecto;
+import co.edu.unicauca.DesignPatterns.domain.entities.ProyectoDeGrado;
+
+public class EtapaPresentadoDecanatura implements EtapaProyecto {
     @Override
     public void presentar(ProyectoDeGrado proyecto) {
         System.out.println("Consejo asigna fecha y jurados para sustentación.");
-        proyecto.setEstado(new EstadoSustentacionPublica());
+        proyecto.setEstado(EstadoProyecto.FECHA_SUSTENTACION_FIJADA);
+        proyecto.setEtapa(new EtapaSustentacionPublica());
     }
 
     @Override

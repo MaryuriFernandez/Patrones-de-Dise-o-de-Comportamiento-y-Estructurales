@@ -1,6 +1,8 @@
 package co.edu.unicauca.DesignPatterns.domain.state;
 
-public class EstadoRechazado implements EstadoProyecto {
+import co.edu.unicauca.DesignPatterns.domain.entities.ProyectoDeGrado;
+
+public class EtapaRechazado implements EtapaProyecto {
     @Override
     public void presentar(ProyectoDeGrado proyecto) {
         System.out.println("Proyecto rechazado. No puede continuar.");

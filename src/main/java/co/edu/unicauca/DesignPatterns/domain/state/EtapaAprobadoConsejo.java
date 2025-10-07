@@ -1,10 +1,14 @@
 package co.edu.unicauca.DesignPatterns.domain.state;
 
-public class EstadoAprobadoConsejo implements EstadoProyecto {
+import co.edu.unicauca.DesignPatterns.domain.entities.EstadoProyecto;
+import co.edu.unicauca.DesignPatterns.domain.entities.ProyectoDeGrado;
+
+public class EtapaAprobadoConsejo implements EtapaProyecto {
     @Override
     public void presentar(ProyectoDeGrado proyecto) {
         System.out.println("Proyecto aprobado por Consejo, se emite la resolución. Inicia desarrollo.");
-        proyecto.setEstado(new EstadoEnDesarrollo());
+        proyecto.setEstado(EstadoProyecto.EN_DESARROLLO);
+        proyecto.setEtapa(new EtapaEnDesarrollo());
     }
 
     @Override

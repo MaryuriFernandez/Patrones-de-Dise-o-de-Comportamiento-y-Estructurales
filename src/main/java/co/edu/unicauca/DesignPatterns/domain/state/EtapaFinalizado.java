@@ -1,6 +1,8 @@
 package co.edu.unicauca.DesignPatterns.domain.state;
 
-public class EstadoFinalizado implements EstadoProyecto {
+import co.edu.unicauca.DesignPatterns.domain.entities.ProyectoDeGrado;
+
+public class EtapaFinalizado implements EtapaProyecto {
     @Override
     public void presentar(ProyectoDeGrado proyecto) {
         System.out.println("Proyecto ya finalizado. No se puede presentar nada más.");

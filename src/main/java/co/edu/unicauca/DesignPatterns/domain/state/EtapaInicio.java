@@ -1,10 +1,14 @@
 package co.edu.unicauca.DesignPatterns.domain.state;
 
-public class EstadoInicio implements EstadoProyecto{
+import co.edu.unicauca.DesignPatterns.domain.entities.EstadoProyecto;
+import co.edu.unicauca.DesignPatterns.domain.entities.ProyectoDeGrado;
+
+public class EtapaInicio implements EtapaProyecto {
     @Override
     public void presentar(ProyectoDeGrado proyecto) {
         System.out.println("Formato A diligenciado. Presentado al coordinador.");
-        proyecto.setEstado(new EstadoEnEvaluacionComite());
+        proyecto.setEstado(EstadoProyecto.EN_EVALUACION_COMITE);
+        proyecto.setEtapa(new EtapaEnEvaluacionComite());
     }
 
     @Override
