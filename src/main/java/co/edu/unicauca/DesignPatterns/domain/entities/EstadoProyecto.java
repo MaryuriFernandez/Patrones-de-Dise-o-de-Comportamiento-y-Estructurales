@@ -2,7 +2,6 @@ package co.edu.unicauca.DesignPatterns.domain.entities;
 
 /** Estados de alto nivel del proceso académico. */
 public enum EstadoProyecto {
-    FORMATO_A_DILIGENCIADO,
     PRESENTADO_AL_COORDINADOR,
     EN_EVALUACION_COMITE,
     CORRECCIONES_COMITE,
@@ -14,9 +13,10 @@ public enum EstadoProyecto {
     EVALUADOR_PIDE_CORRECCIONES,
     EVALUADOR_ACEPTA,
     EVALUADOR_RECHAZA,
-    APROBADO_CONSEJO,
-    RESOLUCION_APROBADA,
     EN_DESARROLLO,
     PRORROGA_SOLICITADA,
-    FINALIZADO_MONOGRAFIA
+    FINALIZADO_MONOGRAFIA,
+    FECHA_SUSTENTACION_FIJADA,
+    PROYECTO_APROBADO,
+    PROYECTO_RECHAZADO
 }
