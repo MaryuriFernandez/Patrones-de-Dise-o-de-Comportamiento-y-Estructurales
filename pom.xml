@@ -55,7 +55,7 @@
                 <version>3.5.0</version>
                 <configuration>
                     <!-- Clase principal del proyecto -->
-                    <mainClass>co.edu.unicauca.designpattern.Main</mainClass>
+                    <mainClass>co.edu.unicauca.DesignPatterns.Main</mainClass>
                 </configuration>
             </plugin>
         </plugins>

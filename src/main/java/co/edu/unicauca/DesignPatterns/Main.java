@@ -1,9 +1,11 @@
 package co.edu.unicauca.DesignPatterns;
 
+import co.edu.unicauca.DesignPatterns.decorator.PriorityProject;
 import co.edu.unicauca.DesignPatterns.domain.adapter.CompanyDataProvider;
 import co.edu.unicauca.DesignPatterns.domain.adapter.ExternalService;
 import co.edu.unicauca.DesignPatterns.domain.adapter.ExternalServiceAdapter;
 import co.edu.unicauca.DesignPatterns.domain.entities.*;
+import co.edu.unicauca.DesignPatterns.domain.facade.PlatformFacade;
 import co.edu.unicauca.DesignPatterns.domain.templatemethod.ProfessionalPracticeEvaluator;
 import co.edu.unicauca.DesignPatterns.domain.templatemethod.ProjectEvaluator;
 import co.edu.unicauca.DesignPatterns.domain.templatemethod.ResearchProjectEvaluator;
@@ -17,8 +19,8 @@ public class Main {
         demoTemplateMethod();   // Implementado
         demoAdapter();          // TODO
         demoState();            // TODO
-        demoDecorator();        // TODO
-        demoFacade();           // TODO
+        demoDecorator();        // Implementado
+        demoFacade();           // Implementado
     }
 
     // -------------------------------------------------------------------------
@@ -111,9 +113,44 @@ public class Main {
     // -------------------------------------------------------------------------
     private static void demoDecorator() {
         System.out.println("=== DECORATOR ===");
-        // TODO
-        System.out.println("(pendiente de integrar)");
+        User estudiante = new User(null, "Maryuri Fernandez Salazar", "maryurifernandez@unicauca.edu.co", Rol.ESTUDIANTE);
+        User director = new User(null, "Libardo Pantoja Yepez", "libardoPantoja@unicauca.edu.co", Rol.DOCENTE);
+
+        Project proyecto = new Project(
+                "Sistema de Facturacion",
+                "Desarrollo de un sistema para gestionar las ventas y clientes de una tienda.",
+                Programa.INGENIERIA_DE_SISTEMAS,
+                TipoTrabajoGrado.PRACTICA_PROFESIONAL,
+                estudiante,
+                director,
+                "facilitar a vendedores su trabajo"
+        );
+
+        System.out.println("****************************");
+        System.out.println("    PROYECTO ORIGINAL   ");
+        System.out.println("****************************");
+        System.out.println("Titulo: " + proyecto.getTitulo());
+        System.out.println("Descripcion: " + proyecto.getDescripcion());
+        System.out.println("Programa: " + proyecto.getPrograma());
+        System.out.println("Tipo de trabajo de grado: " + proyecto.getTipoTrabajoGrado());
+        System.out.println("Estudiante: " + proyecto.getEstudiante1().getFullName());
+        System.out.println("Director: " + proyecto.getDirector().getFullName());
+        System.out.println("Objetivo general: " + proyecto.getObjetivoGeneral());
         System.out.println();
+
+        PriorityProject proyectoPrioritario = new PriorityProject(proyecto);
+
+        System.out.println("**********************************************");
+        System.out.println("     PROYECTO DECORADO (Alta Prioridad)     ");
+        System.out.println("**********************************************");
+        System.out.println("Titulo: " + proyectoPrioritario.getTitulo());
+        System.out.println("Descripcion: " + proyectoPrioritario.getDescripcion());
+        System.out.println("Programa: " + proyectoPrioritario.getPrograma());
+        System.out.println("Tipo de trabajo de grado: " + proyectoPrioritario.getTipoTrabajoGrado());
+        System.out.println("Estudiante: " + proyectoPrioritario.getEstudiante1().getFullName());
+        System.out.println("Director: " + proyectoPrioritario.getDirector().getFullName());
+        System.out.println("Objetivo general: " + proyectoPrioritario.getObjetivoGeneral());
+        System.out.println("\n\n");
     }
 
     // -------------------------------------------------------------------------
@@ -122,8 +159,40 @@ public class Main {
     // -------------------------------------------------------------------------
     private static void demoFacade() {
         System.out.println("=== FACADE ===");
-        // TODO
-        System.out.println("(pendiente de integrar)");
+
+        PlatformFacade platform = new PlatformFacade();
+
+        User estudiante1 = new User(null, "Laura Molano", "lauramolano@unicauca.edu.co", Rol.ESTUDIANTE);
+        User director1 = new User(null, "Erwin Meza Vega", "erwin@unicauca.edu.co", Rol.DOCENTE);
+        Project proyecto1 = new Project(
+                "Sistema de Gestión Académica",
+                "Desarrollo de un sistema para gestionar las notas de los estudiantes.",
+                Programa.INGENIERIA_DE_SISTEMAS,
+                TipoTrabajoGrado.PRACTICA_PROFESIONAL,
+                estudiante1,
+                director1,
+                "facilitar a docentes la gestion de notas de sus estudiantes"
+        );
+        User estudiante2 = new User(null, "Juan Ortega", "jortega@unicauca.edu.co", Rol.ESTUDIANTE);
+        User director2 = new User(null, "Pablo Mage", "pablo@unicauca.edu.co", Rol.DOCENTE);
+        Project proyecto2 = new Project(
+                "Análisis comparativo de metodologías de desarrollo",
+                "Evaluación de diferentes enfoques para crear y gestionar sistemas de información, identificando sus fortalezas y debilidades.",
+                Programa.AUTOMATICA_INDUSTRIAL,
+                TipoTrabajoGrado.PROYECTO_DE_INVESTIGACION,
+                estudiante2,
+                director2,
+                "determinar cuál es la metodología más adecuada para un propósito específico"
+        );
+        System.out.println("***************************************");
+        System.out.println("GESTIONANDO UN PROYECTO DE GRADO...");
+        System.out.println("***************************************");
+        platform.manageProject(proyecto1);
+
+        System.out.println("\n***************************************");
+        System.out.println("GESTIONANDO UN PROYECTO DE GRADO...");
+        System.out.println("***************************************");
+        platform.manageProject(proyecto2);
         System.out.println();
     }
 }
