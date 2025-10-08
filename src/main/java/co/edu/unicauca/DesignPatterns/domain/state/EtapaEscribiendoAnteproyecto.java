@@ -7,7 +7,7 @@ public class EtapaEscribiendoAnteproyecto implements EtapaProyecto {
     @Override
     public void presentar(ProyectoDeGrado proyecto) {
         System.out.println("Anteproyecto presentado a Jefatura.");
-        proyecto.setEstado(EstadoProyecto.PRESENTADO_JEFATURA);
+        proyecto.setEstado(EstadoProyecto.EVALUACION_DEPARTAMENTO);
         proyecto.setEtapa(new EtapaEnEvaluacionDepartamento());
     }
 

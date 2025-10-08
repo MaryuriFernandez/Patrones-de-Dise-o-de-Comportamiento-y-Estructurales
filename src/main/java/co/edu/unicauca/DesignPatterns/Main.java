@@ -105,6 +105,7 @@ public class Main {
         proyecto.presentar(); // Presenta monografía
         proyecto.presentar(); // Fija fecha
         proyecto.aprobar();   // Sustentación aprobada
+        System.out.println();
     }
 
     // -------------------------------------------------------------------------

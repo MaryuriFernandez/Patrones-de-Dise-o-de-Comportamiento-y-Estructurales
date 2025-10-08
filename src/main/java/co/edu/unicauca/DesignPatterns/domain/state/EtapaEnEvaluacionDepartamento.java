@@ -11,7 +11,6 @@ public class EtapaEnEvaluacionDepartamento implements EtapaProyecto {
 
     @Override
     public void corregir(ProyectoDeGrado proyecto) {
-        proyecto.setEstado(EstadoProyecto.EVALUACION_DEPARTAMENTO);
         proyecto.incrementarIntentos();
         if (proyecto.getIntentosCorreccion() > 3) {
             System.out.println("Se superó el número máximo de correcciones. Anteproyecto rechazado.");
