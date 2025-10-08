@@ -19,7 +19,6 @@ public class ProyectoDeGradoTest {
         assertInstanceOf(EtapaInicio.class, proyecto.getEtapa());
         assertEquals(EstadoProyecto.PRESENTADO_AL_COORDINADOR, getEstado(proyecto));
 
-        // De presentar pasa a evaluación de comité
         proyecto.presentar();
 
         assertInstanceOf(EtapaEnEvaluacionComite.class, proyecto.getEtapa());
@@ -28,7 +27,7 @@ public class ProyectoDeGradoTest {
 
     @Test
     void testCorreccionesComiteHastaRechazo() {
-        proyecto.presentar(); // pasa a comité
+        proyecto.presentar();
 
         // Se hacen 4 correcciones (más de 3)
         proyecto.corregir();
@@ -42,8 +41,8 @@ public class ProyectoDeGradoTest {
 
     @Test
     void testAprobacionComite() {
-        proyecto.presentar(); // a comité
-        proyecto.aprobar();   // comité aprueba
+        proyecto.presentar();
+        proyecto.aprobar();
 
         assertInstanceOf(EtapaEscribiendoAnteproyecto.class, proyecto.getEtapa());
         assertEquals(EstadoProyecto.ESCRIBIENDO_ANTEPROYECTO, getEstado(proyecto));
@@ -53,7 +52,7 @@ public class ProyectoDeGradoTest {
     void testPresentarAnteproyecto() {
         pasarAEtapaEscribiendoAnteproyecto();
 
-        proyecto.presentar(); // presentar anteproyecto
+        proyecto.presentar();
 
         assertInstanceOf(EtapaEnEvaluacionDepartamento.class, proyecto.getEtapa());
         assertEquals(EstadoProyecto.EVALUACION_DEPARTAMENTO, getEstado(proyecto));
